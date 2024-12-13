@@ -35,7 +35,7 @@ jobs:
       - name: Build with Maven
         run: |
           echo "Starting Maven build..."
-          mvn clean package
+          mvn -ntp clean package
           echo "Maven build complete."
 
       - name: Debug target directory
