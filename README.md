@@ -1,10 +1,12 @@
 # mpro-minecraft-plugins
 
 ## Overview
-MproMinempro-minecraft-plugins is a Minecraft plugin designed to provide a web-based dashboard for
-monitoring your Minecraft server. The plugin utilizes the NanoHTTPD library to host a lightweight
-web server, displaying real-time server statistics such as player information, CPU usage, memory
-usage, and disk usage. In future updates, the plugin will be expanded with additional features
+
+pro-minecraft-plugins is a Minecraft plugin designed to provide a web-based
+dashboard for monitoring your Minecraft server. The plugin utilizes the
+NanoHTTPD library to host a lightweight web server, displaying real-time server
+statistics such as player information, CPU usage, memory usage, and disk usage.
+In future updates, the plugin will be expanded with additional features
 beyond server management and monitoring.
 
 ---
@@ -24,7 +26,15 @@ beyond server management and monitoring.
   - Provides information about loaded chunks and last update times for each world
 
 - **Plugin List**
-  - Lists installed plugins with details (name, version, description, and whether they are enabled)
+  - Lists installed plugins with details (name, version, description, and whether
+  they are enabled)
+
+---
+
+### Prerequisites
+
+- [Java 21+](https://adoptium.net/temurin/releases/)
+- [Apache Maven](https://maven.apache.org/)
 
 ---
 
@@ -33,7 +43,7 @@ beyond server management and monitoring.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-repo/mpro-minecraft-plugins.git
+   git clone https://github.com/maskedamedia/mpro-minecraft-plugins.git
    ```
 
 2. Build the plugin:
@@ -42,7 +52,8 @@ beyond server management and monitoring.
    mvn clean package
    ```
 
-3. Copy the generated JAR file (`target/MproMinecraftPlugins-1.0-ALPHA-shaded.jar`) to your server's `plugins` directory.
+3. Copy the generated JAR file (`target/MproMinecraftPlugins-1.0-ALPHA-shaded.jar`)
+to your server's `plugins` directory.
 
 4. Start your Minecraft server.
 
@@ -81,13 +92,15 @@ webserver:
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
 ## Support
 
-For support or feature requests, open an issue in the repository or contact the maintainers at `info@maskeda.com`.
+For support or feature requests,
+[open an issue](https://github.com/maskedamedia/mpro-minecraft-plugins/issues)
+in the repository or contact the maintainers at `info@maskeda.com`.
 
 ---
 
@@ -96,3 +109,10 @@ For support or feature requests, open an issue in the repository or contact the 
 - **NanoHTTPD**: Lightweight HTTP server
 - **OSHI**: Operating system and hardware information library
 - **Bukkit/Spigot API**: Minecraft server plugin development framework
+
+---
+
+![Java](https://img.shields.io/badge/Java-21%2B-blue)
+![License](https://img.shields.io/github/license/maskedamedia/mpro-minecraft-plugins)
+![GitHub release](https://img.shields.io/github/v/release/maskedamedia/mpro-minecraft-plugins)
+![Downloads](https://img.shields.io/github/downloads/maskedamedia/mpro-minecraft-plugins/total)

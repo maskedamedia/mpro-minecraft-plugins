@@ -22,3 +22,14 @@ Thumbs.db
 # Logs
 logs/
 *.log
+
+# Gradle-specific
+.gradle/
+gradle-*.zip
+
+# Temp files
+*.tmp
+
+# Node.js-related
+node_modules/
+npm-debug.log
