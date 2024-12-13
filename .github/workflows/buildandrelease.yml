@@ -44,6 +44,11 @@ jobs:
           echo "Listing all files:"
           find ${{ github.workspace }} -type f
 
+      - name: Ensure target directory permissions
+        run: |
+          chmod -R 755 ${{ github.workspace }}/target
+          ls -la ${{ github.workspace }}/target
+
       - name: Check if artifact exists
         run: |
           FILE="${{ github.workspace }}/target/MproMinecraftPlugins-${{ github.event.inputs.version }}-shaded.jar"
@@ -51,6 +56,8 @@ jobs:
             echo "Found artifact: $FILE"
           else
             echo "Artifact not found: $FILE"
+            echo "Listing target directory for debug:"
+            ls -la ${{ github.workspace }}/target
             exit 1
           fi
 
