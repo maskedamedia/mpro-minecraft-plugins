@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      JAVA_HOME: ${{ runner.tool_cache }}/Java_Temurin-Hotspot_jdk/21.0.5-11/x64
       version: ${{ github.event.inputs.version }}
 
     steps:
