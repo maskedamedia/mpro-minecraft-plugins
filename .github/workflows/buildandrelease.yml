@@ -38,12 +38,6 @@ jobs:
           mvn -ntp clean package
           echo "Maven build complete."
 
-      - name: Debug Environment and Paths
-        run: |
-          echo "Github workspace: ${{ github.workspace }}"
-          echo "Listing all files:"
-          find ${{ github.workspace }} -type f
-
       - name: Ensure target directory permissions
         run: |
           chmod -R 755 ${{ github.workspace }}/target
@@ -61,12 +55,23 @@ jobs:
             exit 1
           fi
 
-      - name: Upload Build Artifact
-        uses: actions/upload-release-asset@v1
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ env.version }}
+          release_name: Release ${{ env.version }}
+          draft: false
+          prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
         with:
-          upload_url: https://uploads.github.com/repos/${{ github.repository }}/assets
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ${{ github.workspace }}/target/MproMinecraftPlugins-${{ github.event.inputs.version }}-shaded.jar
           asset_name: MproMinecraftPlugins-${{ github.event.inputs.version }}-shaded.jar
           asset_content_type: application/java-archive
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
