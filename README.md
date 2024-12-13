@@ -2,7 +2,7 @@
 
 ## Overview
 
-pro-minecraft-plugins is a Minecraft plugin designed to provide a web-based
+mpro-minecraft-plugins is a Minecraft plugin designed to provide a web-based
 dashboard for monitoring your Minecraft server. The plugin utilizes the
 NanoHTTPD library to host a lightweight web server, displaying real-time server
 statistics such as player information, CPU usage, memory usage, and disk usage.
