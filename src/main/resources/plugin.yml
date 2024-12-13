@@ -1,0 +1,10 @@
+name: MproMinecraftPlugins
+main: com.example.mprominecraftplugins.MproMinecraftPlugins
+version: 1.0-ALPHA
+description: A custom plugin for managing and displaying Minecraft server features, including player info and plugin lists.
+author: Douglas A. Maske
+website: https://github.com/maskedamedia
+commands:
+  myplugincommand:
+    description: Web dashboard for Minecraft server features
+    usage: Configure the config.yml for IP and port details.

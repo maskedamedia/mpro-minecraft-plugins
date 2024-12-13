@@ -1,0 +1,4 @@
+webserver:
+  enabled: true
+  port: 8005
+  bind-ip: 0.0.0.0

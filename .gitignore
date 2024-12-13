@@ -2,9 +2,6 @@
 # Build artifacts
 target/
 
-# Configuration files
-*.yml
-
 # Sensitive files
 credentials.json
 *.key
