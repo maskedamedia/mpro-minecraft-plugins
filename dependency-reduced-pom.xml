@@ -36,6 +36,10 @@
               <goal>shade</goal>
             </goals>
             <configuration>
+              <finalName>MproMinecraftPlugins-${project.version}-shaded</finalName>
+              <outputDirectory>${project.build.directory}/shaded</outputDirectory>
+              <temporaryDirectory>${project.build.directory}/shade-tmp</temporaryDirectory>
+              <overwriteOutput>true</overwriteOutput>
               <relocations>
                 <relocation>
                   <pattern>fi.iki.elonen</pattern>
