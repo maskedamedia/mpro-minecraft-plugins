@@ -38,17 +38,19 @@ jobs:
           mvn -ntp clean package
           echo "Maven build complete."
 
-      - name: Debug target directory
+      - name: Debug Environment and Paths
         run: |
-          echo "Listing target directory contents:"
-          ls -la ${{ github.workspace }}/target
+          echo "Github workspace: ${{ github.workspace }}"
+          echo "Listing all files:"
+          find ${{ github.workspace }} -type f
 
       - name: Check if artifact exists
         run: |
-          if [ -f "${{ github.workspace }}/target/MproMinecraftPlugins-${{ github.event.inputs.version }}-shaded.jar" ]; then
-            echo "Shaded JAR found."
+          FILE="${{ github.workspace }}/target/MproMinecraftPlugins-${{ github.event.inputs.version }}-shaded.jar"
+          if [ -f "$FILE" ]; then
+            echo "Found artifact: $FILE"
           else
-            echo "Shaded JAR not found. Build may have failed or the file name is incorrect."
+            echo "Artifact not found: $FILE"
             exit 1
           fi
 
