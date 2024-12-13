@@ -1,0 +1,24 @@
+---
+# Build artifacts
+target/
+
+# Configuration files
+*.yml
+
+# Sensitive files
+credentials.json
+*.key
+*.pem
+
+# IDE settings
+.idea/
+*.iml
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
