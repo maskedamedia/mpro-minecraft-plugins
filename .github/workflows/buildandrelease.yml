@@ -33,13 +33,24 @@ jobs:
           echo "Version: ${{ github.event.inputs.version }}"
 
       - name: Build with Maven
-        run: mvn clean package
-
-      - name: Debug current directory
-        run: pwd
+        run: |
+          echo "Starting Maven build..."
+          mvn clean package
+          echo "Maven build complete."
 
       - name: Debug target directory
-        run: ls -la ./target
+        run: |
+          echo "Listing target directory contents:"
+          ls -la ./target
+
+      - name: Check if artifact exists
+        run: |
+          if [ -f "./target/MproMinecraftPlugins-${{ github.event.inputs.version }}-shaded.jar" ]; then
+            echo "Shaded JAR found."
+          else
+            echo "Shaded JAR not found. Build may have failed or the file name is incorrect."
+            exit 1
+          fi
 
       - name: Upload Build Artifact
         uses: actions/upload-release-asset@v1
