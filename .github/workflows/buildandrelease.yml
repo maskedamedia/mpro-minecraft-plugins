@@ -1,5 +1,4 @@
----
-name: Build and Release
+name: mpro-minecraft-plugins - build and release
 
 permissions:
   contents: write
@@ -42,23 +41,12 @@ jobs:
       - name: Debug target directory
         run: ls -la ./target
 
-      - name: Create GitHub Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ github.event.inputs.version }}
-          release_name: mpro-minecraft-plugins v${{ github.event.inputs.version }}
-          draft: false
-          prerelease: true
-
       - name: Upload Build Artifact
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          upload_url: https://uploads.github.com/repos/${{ github.repository }}/assets
           asset_path: ./target/MproMinecraftPlugins-${{ github.event.inputs.version }}-shaded.jar
           asset_name: MproMinecraftPlugins-${{ github.event.inputs.version }}-shaded.jar
           asset_content_type: application/java-archive
