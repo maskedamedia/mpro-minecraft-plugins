@@ -28,8 +28,14 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
+      - name: Echo version
+        run: echo "Version: ${{ github.event.inputs.version }}"
+
       - name: Build with Maven
         run: mvn clean package
+
+      - name: Debug current directory
+        run: pwd
 
       - name: Debug target directory
         run: ls -la ./target
